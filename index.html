@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Alisha ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:'Great Vibes', cursive;
+    background:url('https://images.unsplash.com/photo-1522383225653-ed111181a951')
+    center/cover no-repeat fixed;
+}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(255,182,193,0.35);
+    z-index:-1;
+}
+
+/* falling petals */
+.petal{
+    position:absolute;
+    top:-40px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* common layout */
+.center{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+.hidden{display:none;}
+h1,h2,p{color:#b8003a;}
+
+/* ❤️ PERFECT HEART */
+.heart-mailbox{
+    position: relative;
+    width: 260px;
+    height: 240px;
+    cursor:pointer;
+}
+.heart-mailbox::before,
+.heart-mailbox::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:200px;
+    background:#c4001d;
+    border-radius:130px 130px 0 0;
+    top:40px;
+}
+.heart-mailbox::before{
+    left:130px;
+    transform:rotate(-45deg);
+    transform-origin:0 100%;
+}
+.heart-mailbox::after{
+    left:0;
+    transform:rotate(45deg);
+    transform-origin:100% 100%;
+}
+
+/* teddy on heart */
+.teddy-top{
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:80px;
+    z-index:2;
+}
+
+/* buttons */
+.btn{
+    margin-top:30px;
+    padding:14px 36px;
+    font-size:28px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    background:#ff2f6d;
+    color:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+.teddy{font-size:90px;margin:15px;}
+
+/* photo */
+.photo{
+    width:280px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    animation:pop 1s ease;
+}
+@keyframes pop{
+    from{transform:scale(0);}
+    to{transform:scale(1);}
+}
+
+/* corner teddies */
+.corner-left,.corner-right{
+    position:fixed;
+    top:10px;
+    font-size:90px;
+}
+.corner-left{left:10px;}
+.corner-right{right:10px;}
+</style>
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<35;i++){
+    const p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="🌸";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=6+Math.random()*6+"s";
+    document.body.appendChild(p);
+}
+</script>
+
+<!-- SCENE 1 -->
+<div class="center" id="s1">
+    <div class="heart-mailbox" onclick="show(2)">
+        <div class="teddy-top">🧸</div>
+    </div>
+    <h1>Open My Heart ❤️</h1>
+</div>
+
+<!-- SCENE 2 -->
+<div class="center hidden" id="s2">
+    <h2>I want to ask something… 💕</h2>
+    <div class="teddy">🧸</div>
+    <button class="btn" onclick="show(3)">Yes 🌸</button>
+</div>
+
+<!-- SCENE 3 -->
+<div class="center hidden" id="s3">
+    <h1>Will you be my Valentine, Alisha? 💖</h1>
+    <div class="teddy">🧸💞</div>
+    <button class="btn" onclick="show(4)">Yes 💘</button>
+    <button class="btn" onclick="alert('❌ This option is not available 😜')">No 🙈</button>
+</div>
+
+<!-- SCENE 4 -->
+<div class="center hidden" id="s4">
+    <h1>I knew that 💗</h1>
+    <div class="teddy">🧸💕</div>
+    <button class="btn" onclick="show(5)">Yes 💞</button>
+</div>
+
+<!-- SCENE 5 -->
+<div class="center hidden" id="s5">
+    <h1>I LOVE YOU ALISHA ❤️</h1>
+    <div class="teddy">🧸💌🧸</div>
+    <p>(Tap anywhere 💖)</p>
+</div>
+
+<!-- SCENE 6 -->
+<div class="center hidden" id="s6">
+    <div class="heart-mailbox">
+        <div class="teddy-top">🧸</div>
+    </div>
+    <button class="btn" onclick="show(7)">Click Here 💌</button>
+</div>
+
+<!-- SCENE 7 -->
+<div class="center hidden" id="s7">
+    <img src="photo.jpg" class="photo">
+    <h2>Forever Together 💞</h2>
+    <div class="corner-left">🧸</div>
+    <div class="corner-right">🧸</div>
+</div>
+
+<script>
+document.getElementById("s5").onclick=function(){
+    show(6);
+};
+function show(n){
+    for(let i=1;i<=7;i++){
+        document.getElementById("s"+i).classList.add("hidden");
+    }
+    document.getElementById("s"+n).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
